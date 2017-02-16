@@ -1,24 +1,33 @@
 module.exports = {
   entry: {
-    app: './app/index.js',
-    vendor: ['jquery']
+    app: './app/app.js',
+    vendor: ['jquery', 'react', 'react-dom']
   },
-  module: {
-    rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader'
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  },
-  devtool: 'inline-source-map',
   output: {
     filename: '[name].bundle.js',
     path: 'dist/'
+  },
+  devtool: 'source-map',
+  module: {
+    loaders: [
+      {
+        test: /.js?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      }]
   }
 }
