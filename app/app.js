@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, Link, IndexRoute } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import Layout from './Pages/Layout'
-import Index from './Pages/Index'
-import About from './Pages/About'
-import Users from './Pages/Users'
-import UserDetail from './Pages/UserDetail'
+import reducer from './reducers';
+import Layout from './Pages/Layout';
+import Index from './Pages/Index';
+import About from './Pages/About';
+import Users from './Pages/UsersContainer';
+import UserDetail from './Pages/UserDetailContainer';
 
-var app = document.getElementById('app');
+const store = createStore(reducer);
+const app = document.getElementById('app');
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Index} />
-      <Route path="about" component={About} />
-      <Route path="users" component={Users} />
-      <Route path="/user/:userId" component={UserDetail} />
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={Layout}>
+        <IndexRoute component={Index} />
+        <Route path="about" component={About} />
+        <Route path="users" component={Users} />
+        <Route path="/user/(:userId)" component={UserDetail} />
+      </Route>
+    </Router>
+  </Provider>,
   app);
