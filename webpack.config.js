@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
     app: './app/app.js',
-    vendor: ['jquery', 'react', 'react-dom']
+    vendor: ['jquery', 'react', 'react-dom', 'react-router']
   },
   output: {
     filename: '[name].bundle.js',

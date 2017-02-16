@@ -9,6 +9,13 @@ export default class UserForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    let self = this;
+
+    var user = this.props.users[parseInt(this.props.params.userId)];
+      this.setState(Object.assign({},user));
+  }
+
   handleChange(event) {
     let self = this;
 

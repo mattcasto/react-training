@@ -1,12 +1,11 @@
-import React from 'react';
 import $ from 'jquery';
-import UserList from '../Components/UserList';
-import UserForm from '../Components/UserForm';
+import React from 'react';
+import { Link } from 'react-router';
 
 export default class Layout extends React.Component {
-  constructor() {
-    super()
-    this.state = {
+  constructor(props) {
+    super(props);
+  this.state = {
       users: []
     };
   }
@@ -14,25 +13,35 @@ export default class Layout extends React.Component {
   componentDidMount() {
     let self = this;
 
-    $.getJSON('http://scottpreston.github.io/html/data.json', ((data) => self.setState({users:data.list})));
+    $.getJSON('http://scottpreston.github.io/html/data.json', ((data) => self.setState({ users: data.list })));
   }
 
   addUser(user) {
     let self = this;
 
     let users = self.state.users.concat([user]);
-    self.setState({users});
+    self.setState({ users });
   }
 
   render() {
+    let clone = React.cloneElement(this.props.children, {
+      users: this.state.users,
+      addUser: this.addUser.bind(this)
+    })
     return (
-      <div className="container-fluid">
-        <div className="col-md-2 col-md-offset-1">
-          <UserList users={this.state.users} />
-        </div>
-        <div className="col-md-8">
-          <UserForm addUser={this.addUser.bind(this)} />
-        </div>
+      <div>
+        <header>
+          <nav className="navbar navbar-default">
+            <ul className="nav navbar-nav">
+              <li className="active"><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/users">Users</Link></li>
+            </ul>
+          </nav>
+        </header>
+        <section className="container-fluid">
+          {clone}
+        </section>
       </div>
     );
   }

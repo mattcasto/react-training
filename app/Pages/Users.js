@@ -1,5 +1,6 @@
 import React from 'react';
-import User from './User';
+
+import User from '../Components/User';
 
 export default class Users extends React.Component {
   constructor(props) {
@@ -7,7 +8,6 @@ export default class Users extends React.Component {
   }
 
   render() {
-    let i = 0;
     return (
       <section>
         <h2>Users</h2>
@@ -19,7 +19,7 @@ export default class Users extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.users.map(p => (<User key={i++} name={p.name} email={p.email} />))}
+            {this.props.users.map((p, i) => (<User key={i} id={i} name={p.name} email={p.email} />))}
           </tbody>
         </table>
       </section>
