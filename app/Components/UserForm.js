@@ -12,9 +12,11 @@ export default class UserForm extends React.Component {
   handleChange(event) {
     let self = this;
 
-    let val = event.target.value;
-    let newState = Object.assign({}, self.state);
-    newState[event.target.id] = val;
+    let newState = {
+      name: this.refs.name.value,
+      email: this.refs.email.value
+    }
+
     self.setState(newState);  
   }
 
@@ -22,6 +24,8 @@ export default class UserForm extends React.Component {
     let self = this;
 
     self.props.addUser(self.state);
+    self.setState({name:'',email:''});
+
     event.preventDefault();
   }
 
@@ -31,11 +35,11 @@ export default class UserForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input type="text" onChange={this.handleChange} className="form-control" id="name" placeholder="Enter name" />
+          <input type="text" ref="name" id="name" value={this.state.name} onChange={this.handleChange} className="form-control" placeholder="Enter name" />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" onChange={this.handleChange} className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
+          <input type="email" ref="email" id="email" value={this.state.email} onChange={this.handleChange} className="form-control" aria-describedby="emailHelp" placeholder="Enter email" />
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
