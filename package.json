@@ -4,11 +4,14 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "watch": "webpack --watch",
     "pack": "webpack",
+    "watch": "webpack --watch",
+    
     "serve": "http-server --cors",
-    "start": "npm run pack && npm run serve",
-    "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- app/tests/*.js"
+    "serve-coverage": "npm test && http-server coverage --cors -o",
+
+    "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- tests/*.js",
+    "start": "npm run pack && npm run serve"
   },
   "author": "",
   "license": "ISC",
