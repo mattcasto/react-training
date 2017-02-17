@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router';
+import NavLink from '../NavLink';
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -13,10 +13,9 @@ export default class Layout extends React.Component {
         <header>
           <nav className="navbar navbar-default">
             <ul className="nav navbar-nav">
-              <li><Link to="/" activeClassName="active">Home</Link></li>
-              <li><Link to="/about" activeClassName="active">About</Link></li>
-              <li><Link to="/users" activeClassName="active">Users</Link></li>
-              <li><Link to="/user/" activeClassName="active">Add User</Link></li>
+              <NavLink to="/" activeClassName="active">Home</NavLink>
+              <NavLink to="/about" activeClassName="active">About</NavLink>
+              <NavLink to="/users" activeClassName="active">Users</NavLink>
             </ul>
           </nav>
         </header>
@@ -27,4 +26,3 @@ export default class Layout extends React.Component {
     );
   }
 }
-

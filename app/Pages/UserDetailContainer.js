@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
 
 import UserDetail from '../Components/UserDetail';
 
@@ -15,13 +14,14 @@ class UserDetailContainer extends React.Component {
   addUser(newUser) {
     let {dispatch} = this.props;
 
-    dispatch({ type: 'ADD_USER', user: newUser })
+    dispatch({ type: 'UPDATE_USER', user: newUser })
+    dispatch({ type: 'SELECT_USER', user: { name: '', email: '' } })
 
-    hashHistory.push('/users');
+    this.props.router.push('/users');
   }
 
   render() {
-    return (<UserDetail user={this.props.user} addUser={this.addUser} />);
+    return (<UserDetail user={this.props.user} addUser={this.addUser} id={this.props.params.userId} />);
   }
 }
 
