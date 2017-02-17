@@ -2,13 +2,13 @@
   "name": "challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "app/app.js",
+  "main": "src/app.js",
   "scripts": {
     "watch": "webpack --watch",
     "pack": "webpack",
     "serve": "http-server --cors",
     "start": "npm run pack && npm run serve",
-    "test": "babel-node node_modules/mocha/bin/_mocha -- app/tests/*.js"
+    "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- app/tests/*.js"
   },
   "author": "",
   "license": "ISC",
