@@ -1,24 +1,38 @@
-export default (state = { users: [], user: { name: '', email: '' } }, action) => {
+
+const initialState = {
+  users: [],
+  user: { name: '', email: '' }
+}
+
+export default (state = initialState, action) => {
+  const newState = Object.assign({}, state);
+
   switch (action.type) {
     case 'INIT':
-      return { users: action.users };
+      return Object.assign(newState, { users: action.users });
     case 'UPDATE_USER':
-      let oldUsers = state.users;
-      let newUsers = Object.assign([], oldUsers);
-      if (!isNaN(action.user.id)) {
-        newUsers[action.user.id] = {
-          name: action.user.name,
-          email:action.user.email
-        }
-      } else {
-        newUsers.push(action.user);
-      };
-      
-      return { users: newUsers };
+      return Object.assign(newState, { users: updateUsers(state, action.user) });
     case 'SELECT_USER':
-      let selectedUser = Object.assign({}, action.user);
-      return { users: state.users, user: selectedUser };
+      return Object.assign(newState, { user: action.user });
     default:
       return state;
   }
+}
+
+function updateUsers(state, user) {
+  let oldUsers = state.users;
+  let returnValue = Object.assign([], oldUsers);
+
+  const newUser = {
+    name: user.name,
+    email: user.email
+  };
+
+  if (isNaN(user.id)) {
+    returnValue.push(newUser);
+  } else {
+    returnValue[user.id] = newUser;
+  }
+
+  return returnValue;
 }
