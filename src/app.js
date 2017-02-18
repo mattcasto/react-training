@@ -5,11 +5,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import reducer from './reducers';
-import Layout from './Pages/Layout';
-import Index from './Pages/Index';
-import About from './Pages/About';
-import Users from './Pages/UsersContainer';
-import UserDetail from './Pages/UserDetailContainer';
+import Layout from './pages/Layout';
+import Index from './pages/Index';
+import About from './pages/About';
+import Users from './pages/UsersContainer';
+import UserDetail from './pages/UserDetailContainer';
 
 const store = createStore(reducer);
 const app = document.getElementById('app');

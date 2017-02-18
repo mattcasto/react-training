@@ -4,14 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "pack": "webpack",
-    "watch": "webpack --watch",
-    
-    "serve": "http-server --cors",
-    "serve-coverage": "npm test && http-server coverage --cors -o",
-
     "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- tests/*.js",
-    "start": "npm run pack && npm run serve"
+    "start": "webpack-dev-server --open --hot --inline"
   },
   "author": "",
   "license": "ISC",
@@ -42,6 +36,7 @@
     "sinon": "^1.17.7",
     "source-map-loader": "^0.1.6",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }

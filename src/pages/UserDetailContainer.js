@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 
-import UserDetail from '../Components/UserDetail';
+import UserDetail from '../components/UserDetail';
 
 class UserDetailContainer extends React.Component {
   constructor(props) {

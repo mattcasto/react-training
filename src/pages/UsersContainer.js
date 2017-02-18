@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import { connect } from 'react-redux';
 
-import Users from '../Components/Users';
+import Users from '../components/Users';
 
 class UsersContainer extends React.Component {
   constructor(props) {

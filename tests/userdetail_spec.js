@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 
-import UserDetail from '../src/Components/UserDetail'
+import UserDetail from '../src/components/UserDetail'
 
 describe('<UserDetail />', () => {
   it('has form that can submit.', () => {

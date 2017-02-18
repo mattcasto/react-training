@@ -2,7 +2,7 @@ import React from 'react';
 import { render, shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Users from '../src/Components/Users'
+import Users from '../src/components/Users'
 
 const expected = {name: 'Jon Snow', email: 'jon.snow@got.com'};
 describe('<Users />', () => {
