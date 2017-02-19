@@ -4,9 +4,11 @@ export default class UserDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    const { name, email } = props.user;
+
     this.state = {
-      name: props.user.name,
-      email: props.user.email
+      name: name,
+      email: email
     };
 
     this.handleChange = this.handleChange.bind(this);

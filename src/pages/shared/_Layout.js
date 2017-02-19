@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavLink from '../NavLink';
+import NavLink from './NavLink';
 
 export default class Layout extends React.Component {
   constructor(props) {

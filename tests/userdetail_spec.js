@@ -10,7 +10,7 @@ import UserDetail from '../src/components/UserDetail'
 
 describe('<UserDetail />', () => {
   it('has form that can submit.', () => {
-    const wrapper = mount(<UserDetail />);
+    const wrapper = mount(<UserDetail user={{name:'', email:''}} />);
 
     const form = wrapper.find('form');
     expect(form.exists()).to.be.true;
@@ -18,7 +18,7 @@ describe('<UserDetail />', () => {
   });
 
   it('has refs for name and email', () => {
-    const wrapper = mount(<UserDetail />);
+    const wrapper = mount(<UserDetail user={{name:'', email:''}} />);
 
     expect(wrapper.ref('name').exists(), 'name').to.be.true;
     expect(wrapper.ref('email').exists(), 'email').to.be.true;
@@ -30,12 +30,18 @@ describe('<UserDetail />', () => {
 
     // Arrange
     const spy = sinon.spy();
-    const wrapper = mount(<UserDetail addUser={spy} />);
+    const wrapper = mount(<UserDetail user={{name:'', email:''}} addUser={spy} />);
 
     // Act
-    wrapper.ref('name').get(0).value = expected.name;
-    wrapper.ref('email').get(0).value = expected.email;
-    wrapper.find('form').simulate('submit');
+    const name = wrapper.ref('name'),
+          email = wrapper.ref('email'),
+          form = wrapper.find('form');
+    
+    name.get(0).value = expected.name;
+    name.simulate('change');
+    email.get(0).value = expected.email;
+    email.simulate('change');
+    form.simulate('submit');
 
     // Assert
     expect(spy.calledOnce).is.true;
