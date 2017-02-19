@@ -1,0 +1,23 @@
+{
+    "version":"0.1.0",
+    "command": "npm",
+    "isShellCommand":true,
+    "suppressTaskName": true,
+    "echoCommand": true,
+    "options": {
+        "cwd": "${workspaceRoot}"
+    },
+    "tasks": [
+        {
+            "isTestCommand": true,
+            "taskName": "npm script: Test",
+            "args": [ "test" ]
+        },
+        {
+            "isBuildCommand": true,
+            "isBackground": true,
+            "taskName": "npm script: Start",
+            "args": [ "start" ]
+        }
+    ]
+}

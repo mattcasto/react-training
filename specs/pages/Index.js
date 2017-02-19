@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 
-import About from '../src/pages/About'
+import Index from '../../src/pages/Index'
 
-const expected = 'Hello About';
-describe('<About />', () => {
+const expected = 'Hello Index';
+describe('<Index />', () => {
   it(`renders a div with ${expected}`, () => {
-    const wrapper = render(<About />)
+    const wrapper = render(<Index />)
     expect(wrapper.text()).to.contain(expected);
   });
 });

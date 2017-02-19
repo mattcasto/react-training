@@ -1,6 +1,6 @@
 node_modules/
 .idea/
-.vscode/
+.vscode/chrome/
 .nyc_output/
 .DS_Store
 

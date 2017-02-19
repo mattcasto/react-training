@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- tests/*.js",
-    "start": "webpack-dev-server --open --hot --inline"
+    "serve": "webpack-dev-server --open --hot --inline",
+    "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- specs/**/*.js",
+    "start": "npm test && npm run serve"
   },
   "author": "",
   "license": "ISC",
