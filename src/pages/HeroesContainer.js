@@ -3,6 +3,9 @@ import $ from 'jquery';
 
 import { connect } from 'react-redux';
 
+import config from '../config/config';
+import {defaultHero} from '../config/default'
+
 import Heroes from '../components/Heroes';
 
 class HeroesContainer extends React.Component {
@@ -22,7 +25,7 @@ class HeroesContainer extends React.Component {
   getHero(id = null) {
     let {dispatch} = this.props;
 
-    let hero = id === null ? { name: '', email: '' } : this.props.heroes[id];
+    let hero = id === null ? defaultHero() : this.props.heroes.filter(h => h.uuid === id)[0];
 
     dispatch({ type: 'SELECT', hero: hero });
 
@@ -31,7 +34,7 @@ class HeroesContainer extends React.Component {
 
   componentDidMount() {
     if (!this.props.heroes.length) {
-      $.getJSON('http://scottpreston.github.io/html/data.json', ((data) => this.init(data.list)));
+      $.getJSON('https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHeros', ((data) => this.init(data)));
     }
   }
 

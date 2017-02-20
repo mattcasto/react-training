@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "webpack-dev-server --open --hot --inline",
     "test": "nyc --reporter=html --require babel-register --require babel-polyfill mocha -- specs/**/*.js",
-    "start": "npm test && npm run serve"
+    "start": "npm run serve"
   },
   "author": "",
   "license": "ISC",

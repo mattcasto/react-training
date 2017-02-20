@@ -2,6 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 
+import { defaultHero } from '../config/default';
 import HeroDetail from '../components/HeroDetail';
 
 class HeroDetailContainer extends React.Component {
@@ -15,13 +16,13 @@ class HeroDetailContainer extends React.Component {
     let {dispatch} = this.props;
 
     dispatch({ type: 'UPDATE', hero: newHero })
-    dispatch({ type: 'SELECT', hero: { name: '', email: '' } })
+    dispatch({ type: 'SELECT', hero: defaultHero() })
 
     this.props.router.push('/heroes');
   }
 
   render() {
-    return (<HeroDetail hero={this.props.hero} addHero={this.addHero} id={this.props.params.id} />);
+    return (<HeroDetail {...this.props.hero} addHero={this.addHero} />);
   }
 }
 

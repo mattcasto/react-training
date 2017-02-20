@@ -1,7 +1,8 @@
+import { defaultHero, defaultHeroes } from '../config/default';
 
 const initialState = {
-  heroes: [],
-  hero: { name: '', email: '' }
+  heroes: defaultHeroes(),
+  hero: defaultHero()
 }
 
 export default (state = initialState, action) => {
@@ -11,7 +12,7 @@ export default (state = initialState, action) => {
     case 'INIT':
       return Object.assign(newState, { heroes: action.heroes });
     case 'UPDATE':
-      return Object.assign(newState, { heroes: updateUsers(state, action.hero) });
+      return Object.assign(newState, { heroes: updateHero(state, action.hero) });
     case 'SELECT':
       return Object.assign(newState, { hero: action.hero });
     default:
@@ -19,7 +20,7 @@ export default (state = initialState, action) => {
   }
 }
 
-function updateUsers(state, hero) {
+function updateHero(state, hero) {
   let oldUsers = state.heroes;
   let returnValue = Object.assign([], oldUsers);
 

@@ -8,14 +8,16 @@ export default class Hero extends React.Component {
   }
 
   handleClick(event) {
-    this.props.getHero(this.props.id);
+    event.preventDefault();
+    this.props.getHero(this.props.uuid);
   }
 
   render() {
     return (
       <tr>
-        <td><button onClick={this.handleClick}>{this.props.name}</button></td>
-        <td>{this.props.email}</td>
+        <td><a style={{cursor:'pointer'}} onClick={this.handleClick}>{this.props.heroName}</a></td>
+        <td>{this.props.realName}</td>
+        <td>{this.props.signedAccords}</td>
       </tr>
     )
   }

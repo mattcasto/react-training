@@ -24,17 +24,18 @@ export default class Heroes extends React.Component {
           <thead>
             <tr>
               <th>
-                <span className="col-md-1">Name</span>
+                <span className="col-md-2">Hero Name</span>
                 <button onClick={this.handleAdd} className="btn btn-xs btn-success col-md-1">
                   <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   &nbsp;Add
                 </button>
               </th>
-              <th><span className="col-md-1">Email</span></th>
+              <th><span className="col-md-3">Real Name</span></th>
+              <th><span className="col-md-1">Signed</span></th>
             </tr>
           </thead>
           <tbody>
-            {this.props.heroes.map((p, i) => (<Hero key={i} id={i} name={p.name} email={p.email} getHero={this.props.getHero} />))}
+            {this.props.heroes.map((p) => (<Hero key={p.uuid} {...p} getHero={this.props.getHero} />))}
           </tbody>
         </table>
       </section>

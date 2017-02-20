@@ -19,15 +19,13 @@ export default class Layout extends React.Component {
               </div>
               <ul className="nav navbar-nav">
                 <NavLink to="/about" activeClassName="active">About</NavLink>
-                <NavLink to="/heroes" activeClassName="active">Users</NavLink>
+                <NavLink to="/heroes" activeClassName="active">Heroes</NavLink>
               </ul>
             </div>
           </nav>
         </header>
         <section className="container-fluid">
           <div className="starter-template">
-            <h1> React App Starter w/Bootstrap</h1>
-            <p className="lead">Use this as a sample.</p>
             {this.props.children}
           </div>
         </section>
