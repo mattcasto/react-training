@@ -6,11 +6,11 @@ import sinon from 'sinon';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 
-import UserDetail from '../../src/components/UserDetail'
+import HeroDetail from '../../src/components/HeroDetail'
 
-describe('<UserDetail />', () => {
+describe('<HeroDetail />', () => {
   it('has form that can submit.', () => {
-    const wrapper = mount(<UserDetail user={{name:'', email:''}} />);
+    const wrapper = mount(<HeroDetail hero={{name:'', email:''}} />);
 
     const form = wrapper.find('form');
     expect(form.exists()).to.be.true;
@@ -18,7 +18,7 @@ describe('<UserDetail />', () => {
   });
 
   it('has refs for name and email', () => {
-    const wrapper = mount(<UserDetail user={{name:'', email:''}} />);
+    const wrapper = mount(<HeroDetail hero={{name:'', email:''}} />);
 
     expect(wrapper.ref('name').exists(), 'name').to.be.true;
     expect(wrapper.ref('email').exists(), 'email').to.be.true;
@@ -30,7 +30,7 @@ describe('<UserDetail />', () => {
 
     // Arrange
     const spy = sinon.spy();
-    const wrapper = mount(<UserDetail user={{name:'', email:''}} addUser={spy} />);
+    const wrapper = mount(<HeroDetail hero={{name:'', email:''}} addHero={spy} />);
 
     // Act
     const name = wrapper.ref('name'),

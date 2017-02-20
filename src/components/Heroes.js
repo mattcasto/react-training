@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import User from './User';
+import Hero from './Hero';
 
-export default class Users extends React.Component {
+export default class Heroes extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,14 +11,14 @@ export default class Users extends React.Component {
   }
 
   handleAdd(event) {
-    this.props.getUser();
+    this.props.getHero();
   }
 
   render() {
     return (
       <section>
         <div className="row">
-          <h2 className="col-md-2">Users</h2>
+          <h2 className="col-md-2">Heroes</h2>
         </div>
         <table className="table table-striped">
           <thead>
@@ -34,7 +34,7 @@ export default class Users extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.users.map((p, i) => (<User key={i} id={i} name={p.name} email={p.email} getUser={this.props.getUser} />))}
+            {this.props.heroes.map((p, i) => (<Hero key={i} id={i} name={p.name} email={p.email} getHero={this.props.getHero} />))}
           </tbody>
         </table>
       </section>

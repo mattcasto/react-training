@@ -1,7 +1,7 @@
 
 const initialState = {
-  users: [],
-  user: { name: '', email: '' }
+  heroes: [],
+  hero: { name: '', email: '' }
 }
 
 export default (state = initialState, action) => {
@@ -9,29 +9,29 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case 'INIT':
-      return Object.assign(newState, { users: action.users });
-    case 'UPDATE_USER':
-      return Object.assign(newState, { users: updateUsers(state, action.user) });
-    case 'SELECT_USER':
-      return Object.assign(newState, { user: action.user });
+      return Object.assign(newState, { heroes: action.heroes });
+    case 'UPDATE':
+      return Object.assign(newState, { heroes: updateUsers(state, action.hero) });
+    case 'SELECT':
+      return Object.assign(newState, { hero: action.hero });
     default:
       return state;
   }
 }
 
-function updateUsers(state, user) {
-  let oldUsers = state.users;
+function updateUsers(state, hero) {
+  let oldUsers = state.heroes;
   let returnValue = Object.assign([], oldUsers);
 
-  const newUser = {
-    name: user.name,
-    email: user.email
+  const newHero = {
+    name: hero.name,
+    email: hero.email
   };
 
-  if (isNaN(user.id)) {
-    returnValue.push(newUser);
+  if (isNaN(hero.id)) {
+    returnValue.push(newHero);
   } else {
-    returnValue[user.id] = newUser;
+    returnValue[hero.id] = newHero;
   }
 
   return returnValue;

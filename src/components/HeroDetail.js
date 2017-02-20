@@ -1,14 +1,12 @@
 import React from 'react'
 
-export default class UserDetail extends React.Component {
+export default class extends React.Component {
   constructor(props) {
     super(props);
 
-    const { name, email } = props.user;
-
     this.state = {
-      name: name,
-      email: email
+      name: props.hero.name,
+      email: props.hero.email
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,12 +36,12 @@ export default class UserDetail extends React.Component {
       userToUpdate = this.state;
     }
 
-    this.props.addUser(userToUpdate);
+    this.props.addHero(userToUpdate);
   }
 
   render() {
     return (<section>
-      <h2>Add User</h2>
+      <h2>Hero Details</h2>
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>

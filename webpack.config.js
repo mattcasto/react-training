@@ -7,7 +7,10 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     app: './src/app.js',
-    vendor: ['jquery', 'react', 'react-dom', 'react-router', 'redux', 'react-redux']
+    vendor: ['react', 'react-dom', 'react-router', 'redux', 'react-redux']
+  },
+  externals: {
+    "jquery": "jQuery"
   },
   output: {
     filename: '[name].bundle.js'

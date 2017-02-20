@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class User extends React.Component {
+export default class Hero extends React.Component {
   constructor(props) {
     super(props);
 
@@ -8,7 +8,7 @@ export default class User extends React.Component {
   }
 
   handleClick(event) {
-    this.props.getUser(this.props.id);
+    this.props.getHero(this.props.id);
   }
 
   render() {

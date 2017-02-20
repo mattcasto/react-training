@@ -8,8 +8,8 @@ import reducer from './reducers/reducers';
 import Layout from './pages/shared/_Layout';
 import Index from './pages/Index';
 import About from './pages/About';
-import Users from './pages/UsersContainer';
-import UserDetail from './pages/UserDetailContainer';
+import Heroes from './pages/HeroesContainer';
+import HeroDetail from './pages/HeroDetailContainer';
 
 const store = createStore(reducer);
 const app = document.getElementById('app');
@@ -20,8 +20,8 @@ ReactDOM.render(
       <Route path="/" component={Layout}>
         <IndexRoute component={Index} />
         <Route path="about" component={About} />
-        <Route path="users" component={Users} />
-        <Route path="/user/(:userId)" component={UserDetail} />
+        <Route path="heroes" component={Heroes} />
+        <Route path="hero/(:id)" component={HeroDetail} />
       </Route>
     </Router>
   </Provider>,
