@@ -29,6 +29,9 @@ export default class Layout extends React.Component {
             {this.props.children}
           </div>
         </section>
+        <footer style={{textAlign:"text-center"}}>
+          Copyright 2017
+        </footer>
       </div>
     );
   }

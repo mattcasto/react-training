@@ -7,10 +7,10 @@ const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHero
   _heroes = [],
   _hero = {
     'abilities': {
-      'fighting skills': 0,
+      'fightingSkills': 0,
       'strength': 0,
       'durability': 0,
-      'energy projection': 0,
+      'energyProjection': 0,
       'speed': 0,
       'intelligence': 0
     },
