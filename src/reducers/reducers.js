@@ -1,4 +1,4 @@
-import { defaultHero, defaultHeroes } from '../config/default';
+import { defaultHero, defaultHeroes, EVENTS } from '../config/hero';
 
 const initialState = {
   heroes: defaultHeroes(),
@@ -9,11 +9,11 @@ export default (state = initialState, action) => {
   const newState = Object.assign({}, state);
 
   switch (action.type) {
-    case 'INIT':
+    case EVENTS.LIST:
       return Object.assign(newState, { heroes: action.heroes });
-    case 'UPDATE':
+    case EVENTS.MODIFY:
       return Object.assign(newState, { heroes: updateHero(state, action.hero) });
-    case 'SELECT':
+    case EVENTS.SELECT:
       return Object.assign(newState, { hero: action.hero });
     default:
       return state;

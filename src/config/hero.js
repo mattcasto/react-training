@@ -1,6 +1,10 @@
-export { defaultHero, defaultHeroes };
-
-const _heroes = [],
+const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHeros',
+  EVENTS = {
+    LIST: 'LIST_HERO',
+    SELECT: 'SELECT_HERO',
+    MODIFY: 'MODIFY_HERO'
+  },
+  _heroes = [],
   _hero = {
     'abilities': {
       'fighting skills': 0,
@@ -18,8 +22,7 @@ const _heroes = [],
     'signedAccords': ''
   };
 
-/**
- * Generates a default hero
- */
 function defaultHero() { return Object.assign({}, _hero); }
 function defaultHeroes() { return Object.assign([], _heroes); }
+
+export { URI, EVENTS, defaultHero, defaultHeroes };

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import Hero from './Hero';
-
-export default class Heroes extends React.Component {
+export default class extends React.Component {
   constructor(props) {
     super(props);
 
@@ -41,4 +39,18 @@ export default class Heroes extends React.Component {
       </section>
     );
   }
+}
+
+const Hero = ({getHero, uuid, heroName, realName, signedAccords}) => {
+  const handleClick = (event) => {
+    event.preventDefault();
+    getHero(uuid);
+  }
+
+  return (
+    <tr>
+      <td><a style={{ cursor: 'pointer' }} onClick={handleClick}>{heroName}</a></td>
+      <td>{realName}</td>
+      <td>{signedAccords}</td>
+    </tr>);
 }

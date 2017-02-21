@@ -8,8 +8,8 @@ import reducer from './reducers/reducers';
 import Layout from './pages/shared/_Layout';
 import Index from './pages/Index';
 import About from './pages/About';
-import Heroes from './pages/HeroesContainer';
-import HeroDetail from './pages/HeroDetailContainer';
+import Heroes from './pages/Hero/ListContainer';
+import HeroDetail from './pages/Hero/EditContainer';
 
 const store = createStore(reducer);
 const app = document.getElementById('app');
