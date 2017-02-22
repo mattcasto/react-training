@@ -12,32 +12,25 @@ export default class extends React.Component {
         <div className="row">
           <h2 className="col-md-2">Heroes</h2>
         </div>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>
-                <span className="col-md-3">Hero Name</span>
-                <Link to="/hero/" className="btn btn-xs btn-success col-md-2">
-                  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                  &nbsp;Add
-                </Link>
-              </th>
-              <th><span className="col-md-12">Real Name</span></th>
-              <th><span className="col-md-1">Signed</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.heroes.map((p) => (<Hero key={p.uuid} {...p} />))}
-          </tbody>
-        </table>
+        <div className="row">
+          <Link to="/hero/" className="btn btn-xs btn-success col-md-2">
+            <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            &nbsp;Add
+          </Link>
+        </div>
+        <br />
+        <div className="row">
+          {this.props.heroes.map((p) => (<Hero key={p.uuid} {...p} />))}
+        </div>
       </section>
     );
   }
 }
 
-const Hero = ({uuid, heroName, realName, signedAccords}) => (
-  <tr>
-    <td><Link to={`/hero/${uuid}`}>{heroName}</Link></td>
-    <td>{realName}</td>
-    <td>{signedAccords}</td>
-  </tr>);
+const Hero = ({uuid, heroName, s3ImageUrl}) => (
+  <div className="col-xs-3">
+    <Link to={`/hero/${uuid}`}>
+      <h4>{heroName}</h4>
+      <img src={s3ImageUrl} className="img-responsive hero-img" />
+    </Link>
+  </div>);

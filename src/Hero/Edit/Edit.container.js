@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 
-import { EVENTS, URI, defaultHero } from '../config';
+import { EVENTS, URI, generator } from './Edit.config';
 import Edit from './Edit.presenter';
 
 class EditContainer extends React.Component {
@@ -16,21 +16,30 @@ class EditContainer extends React.Component {
   init(data) {
     const { dispatch, params} = this.props;
 
-    const hero = params.id ? data.filter(h => h.uuid === params.id)[0] : defaultHero();
-    dispatch({ type: EVENTS.SELECT, hero: hero });
+    const hero = params.id ? data.filter(h => h.uuid === params.id)[0] : generator();
+    dispatch({ type: EVENTS.SELECT, payload: hero });
   }
 
   componentDidMount() {
-    $.getJSON(URI, ((data) => this.init(data)));
+    fetch(URI, { 'method' : 'GET'})
+      .then(response => response.json())
+      .then(obj => this.init(obj));
   }
 
   addHero(newHero) {
     const {dispatch, router} = this.props;
 
-    dispatch({ type: EVENTS.MODIFY, hero: newHero });
-    dispatch({ type: EVENTS.SELECT, hero: defaultHero() });
+    if (!newHero.uuid) {
+      newHero.uuid = newHero.heroName.toLowerCase().replace(' ', '');
+    }
 
-    router.push('/heroes');
+    fetch(URI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newHero)
+    }).then(() => router.push('/heroes'));
   }
 
   render() {

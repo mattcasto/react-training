@@ -1,8 +1,8 @@
-const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHeros',
+const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbSkills',
   EVENTS = {
-    LIST: 'LIST_HERO',
-    SELECT: 'SELECT_HERO',
-    MODIFY: 'MODIFY_HERO'
+    LIST: 'LIST_GROUP',
+    SELECT: 'SELECT_GROUP',
+    MODIFY: 'MODIFY_GROUP'
   },
   _heroes = [],
   _hero = {

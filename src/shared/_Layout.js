@@ -28,12 +28,12 @@ export default class Layout extends React.Component {
           </div>
         </section>
         <footer>
-          <nav className="navbar navbar-fixed-bottom navbar-inverse">
+          <div className="navbar navbar-fixed-bottom navbar-inverse">
             <div className="container">
-              <p className="navbar-text navbar-center visible-xs visible-sm">© 2017 S.H.I.E.L.D.</p>
-              <p className="navbar-text navbar-center hidden-xs hidden-sm">© 2017 Strategic Homeland Intervention Enforcement and Logistics Division</p>
+              <p className="navbar-text navbar-center visible-xs visible-sm col-xs-12 text-center">© 2017 S.H.I.E.L.D.</p>
+              <p className="navbar-text navbar-center hidden-xs hidden-sm col-xs-12 text-center">© 2017 Strategic Homeland Intervention Enforcement and Logistics Division</p>
             </div>
-          </nav>
+          </div>
         </footer>
       </div>
     );

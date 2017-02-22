@@ -1,28 +1,19 @@
-const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHeroGroup',
+const URI = 'https://ce3rt0e0yl.execute-api.us-east-1.amazonaws.com/prod/abbHeroGroups',
   EVENTS = {
-    LIST: 'LIST_HERO',
-    SELECT: 'SELECT_HERO',
-    MODIFY: 'MODIFY_HERO'
+    LIST: 'LIST_GROUP',
+    SELECT: 'SELECT_GROUP',
+    MODIFY: 'MODIFY_GROUP'
   },
-  _heroes = [],
-  _hero = {
-    'abilities': {
-      'fightingSkills': 0,
-      'strength': 0,
-      'durability': 0,
-      'energyProjection': 0,
-      'speed': 0,
-      'intelligence': 0
-    },
-    'realName': '',
-    's3ImageUrl': '',
-    'powers': '',
-    'uuid': '',
-    'heroName': '',
-    'signedAccords': ''
-  };
+  _groups = [],
+  _group = {  
+      'uuid':'avengers',
+      'location':'New York, New York',
+      'description':'They are Earth\'s mightiest heroes, formed to fight the foes no single hero could withstand.',
+      'name':'Avengers',
+      's3ImageUrl':'None'
+   };
 
-function defaultHero() { return Object.assign({}, _hero); }
-function defaultHeroes() { return Object.assign([], _heroes); }
+function defaultGroup() { return Object.assign({}, _group); }
+function defaultGroups() { return Object.assign([], _groups); }
 
-export { URI, EVENTS, defaultHero, defaultHeroes };
+export { URI, EVENTS, defaultGroup, defaultGroups };

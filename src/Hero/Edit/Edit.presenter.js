@@ -12,7 +12,7 @@ export default class extends React.Component {
   }
 
   getNewState(props) {
-    return Object.assign({}, props.hero, { signedAccords: props.signedAccords === "Yes" ? "true" : "false" });
+    return Object.assign({}, props.hero);
   }
 
   handleChange(event) {
@@ -71,39 +71,57 @@ export default class extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="signed">Signed Accords</label>
-            <input type="checkbox" value={this.state.signedAccords} onChange={this.handleChange} ref="signed" id="signed" className="form-control" />
+            <select value={this.state.signedAccords} onChange={this.handleChange} ref="signed" id="signed" className="form-control">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
           </div>
         </div>
         <div className="col-md-6">
           <div className="form-group">
             <div className="row">
-              <label htmlFor="skill_fight" className="col-md-1">Fight</label>
+              <label htmlFor="skill_fight" className="col-md-4">Fighting Skills</label>
               <span className="col-md-1">{this.state.abilities.fightingSkills}</span>
             </div>
             <input type="range" min="0" max="10" value={this.state.abilities.fightingSkills} onChange={this.handleChange} ref="skill_fight" id="skill_fight" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="skill_str">Strength</label>
+            <div className="row">
+              <label htmlFor="skill_str" className="col-md-4">Strength</label>
+              <span className="col-md-1">{this.state.abilities.strength}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.strength} onChange={this.handleChange} ref="skill_str" id="skill_str" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="skill_dur">Durability</label>
+            <div className="row">
+              <label htmlFor="skill_dur" className="col-md-4">Durability</label>
+              <span className="col-md-1">{this.state.abilities.durability}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.durability} onChange={this.handleChange} ref="skill_dur" id="skill_dur" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="skill_energy">Energy Projection</label>
+            <div className="row">
+              <label htmlFor="skill_energy" className="col-md-4">Energy Projection</label>
+              <span className="col-md-1">{this.state.abilities.energyProjection}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.energyProjection} onChange={this.handleChange} ref="skill_energy" id="skill_energy" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="skill_speed">Speed</label>
+            <div className="row">
+              <label htmlFor="skill_speed" className="col-md-4">Speed</label>
+              <span className="col-md-1">{this.state.abilities.speed}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.speed} onChange={this.handleChange} ref="skill_speed" id="skill_speed" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="skill_intel">Intelligence</label>
+            <div className="row">
+              <label htmlFor="skill_intel" className="col-md-4">Intelligence</label>
+              <span className="col-md-1">{this.state.abilities.intelligence}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.intelligence} onChange={this.handleChange} ref="skill_intel" id="skill_intel" className="form-control" />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary col-md-offset-10 col-md-2">Submit</button>
       </form>
     </section>);
   }

@@ -4,14 +4,14 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import heroReducer from './Hero/reducers';
+import reducers from './combinedReducers';
 import Layout from './shared/_Layout';
 import Index from './Index/Index.presenter';
 import About from './About/About.presenter';
 import HeroList from './Hero/List/List.container'
 import HeroEdit from './Hero/Edit/Edit.container';
 
-const store = createStore(heroReducer);
+const store = createStore(reducers);
 const app = document.getElementById('app');
 
 ReactDOM.render(

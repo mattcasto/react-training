@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import { connect } from 'react-redux';
 
-import { URI, EVENTS, defaultHero } from '../config'
+import { URI, EVENTS } from './List.config'
 
 import List from './List.presenter';
 
@@ -17,7 +17,7 @@ class ListContainer extends React.Component {
   init(list) {
     let {dispatch} = this.props;
 
-    dispatch({ type: EVENTS.LIST, heroes: list })
+    dispatch({ type: EVENTS.LIST, payload: list })
   }
 
   componentDidMount() {
