@@ -1,4 +1,4 @@
-import { defaultHero, defaultHeroes, EVENTS } from '../config/hero';
+import { defaultHero, defaultHeroes, EVENTS } from './config';
 
 const initialState = {
   heroes: defaultHeroes(),

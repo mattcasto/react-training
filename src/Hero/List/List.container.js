@@ -3,9 +3,9 @@ import $ from 'jquery';
 
 import { connect } from 'react-redux';
 
-import { URI, EVENTS, defaultHero } from '../../config/hero'
+import { URI, EVENTS, defaultHero } from '../config'
 
-import List from '../../components/Hero/List';
+import List from './List.presenter';
 
 class ListContainer extends React.Component {
   constructor(props) {

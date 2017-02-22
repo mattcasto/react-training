@@ -16,13 +16,13 @@ export default class extends React.Component {
           <thead>
             <tr>
               <th>
-                <span className="col-md-2">Hero Name</span>
-                <Link to="/hero/" className="btn btn-xs btn-success col-md-1">
+                <span className="col-md-3">Hero Name</span>
+                <Link to="/hero/" className="btn btn-xs btn-success col-md-2">
                   <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   &nbsp;Add
                 </Link>
               </th>
-              <th><span className="col-md-3">Real Name</span></th>
+              <th><span className="col-md-12">Real Name</span></th>
               <th><span className="col-md-1">Signed</span></th>
             </tr>
           </thead>

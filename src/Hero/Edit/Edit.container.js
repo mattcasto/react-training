@@ -2,8 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 
-import { EVENTS, URI, defaultHero } from '../../config/hero';
-import Edit from '../../components/Hero/Edit';
+import { EVENTS, URI, defaultHero } from '../config';
+import Edit from './Edit.presenter';
 
 class EditContainer extends React.Component {
   constructor(props) {

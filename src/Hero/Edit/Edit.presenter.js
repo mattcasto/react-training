@@ -76,7 +76,10 @@ export default class extends React.Component {
         </div>
         <div className="col-md-6">
           <div className="form-group">
-            <label htmlFor="skill_fight">Fight</label>
+            <div className="row">
+              <label htmlFor="skill_fight" className="col-md-1">Fight</label>
+              <span className="col-md-1">{this.state.abilities.fightingSkills}</span>
+            </div>
             <input type="range" min="0" max="10" value={this.state.abilities.fightingSkills} onChange={this.handleChange} ref="skill_fight" id="skill_fight" className="form-control" />
           </div>
           <div className="form-group">
